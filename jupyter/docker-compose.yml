@@ -1,4 +1,5 @@
 version:  '3'
+
 services:
   datascience-notebook:
     image: jupyter/datascience-notebook:python-3.10.9
@@ -10,7 +11,11 @@ services:
       - ${PWD}/data/requirements:/tmp
     ports:
       - "8888:8888"
+    environment:
+      - JUPYTER_ALLOW_INSECURE_WRITES=true
+    networks:
+      mlops_study_network:
 networks:
-  default:
-    external:
-      name: mlops_study_network
+  mlops_study_network:
+    name: mlops_study_network
+    external: true
