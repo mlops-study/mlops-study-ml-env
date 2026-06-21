@@ -1,0 +1,9 @@
+name: Hello
+on: push
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps: 
+      - run: echo "Hello, world"
+      - uses: action/checkout@v4
+
